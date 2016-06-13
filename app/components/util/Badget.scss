@@ -1,0 +1,16 @@
+@import '~react-toolbox/lib/commons';
+
+$badget-height: $font-size-normal * 1.5;
+
+.badget{
+  background-color: $color-accent;
+  color: $color-accent-contrast;
+  height: $badget-height;
+  line-height: $badget-height;
+  font-size: $font-size-normal;
+  padding: 0 $badget-height/4;
+  border-radius: $badget-height / 2;
+  &.mute{
+    background-color: #ccc;
+  }
+}
