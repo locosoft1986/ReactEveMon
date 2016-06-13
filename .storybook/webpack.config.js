@@ -11,10 +11,7 @@ var postCSSConfig = function() {
 
 var jsLoader = {
   test: /\.js$|\.jsx$/,
-  loader: 'babel',
-  query: {
-    presets: ["react-hmre", "es2015", "react", "stage-0"]
-  },
+  loaders: ['babel-loader'],
   include: path.join(__dirname, '..', 'src'),
   exclude: path.join(__dirname, '..', 'node_modules')
 };
@@ -23,13 +20,13 @@ var scssLoader = {
   test: /(\.scss)$/,
   loaders: ['style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap!toolbox'],
   include: path.resolve(__dirname, '../')
-}
+};
 
 var cssLoader = {
   test: /(\.css)$/,
   loaders: ['style', 'css'],
   include: path.resolve(__dirname, '../')
-}
+};
 
 
 var imgLoader = {
@@ -62,4 +59,4 @@ module.exports = {
   },
 
   postcss: postCSSConfig
-}
+};

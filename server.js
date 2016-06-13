@@ -1,20 +1,40 @@
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config');
+/* eslint no-console: 0 */
 
-var port = parseInt(process.env.LC_APP_PORT || 3000);
+import express from 'express';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
 
-new WebpackDevServer(webpack(config), {
+import config from './webpack.config.development';
+
+const app = express();
+const compiler = webpack(config);
+const PORT = 3000;
+
+const wdm = webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath,
-  hot: true,
-  historyApiFallback: true,
   stats: {
     colors: true
   }
-}).listen(3000, 'localhost', function (err) {
+});
+
+app.use(wdm);
+
+app.use(webpackHotMiddleware(compiler));
+
+const server = app.listen(PORT, 'localhost', err => {
   if (err) {
-    console.log(err);
+    console.error(err);
+    return;
   }
 
-  console.log("==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port);
+  console.log(`Listening at http://localhost:${PORT}`);
+});
+
+process.on('SIGTERM', () => {
+  console.log('Stopping dev server');
+  wdm.close();
+  server.close(() => {
+    process.exit(0);
+  });
 });
