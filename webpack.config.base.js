@@ -57,7 +57,7 @@ export default {
     fontsLoader,
     {
       test: /\.scss$/,
-      loaders: ["style", "css", "sass"]
+      loader: 'style!css!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true&includePaths[]=./node_modules'
     },
     {
       test: /\.css$/,
