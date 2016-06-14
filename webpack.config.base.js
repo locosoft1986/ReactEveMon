@@ -17,14 +17,14 @@ var imgLoader = {
 };
 
 var fontsLoader = {
-  test: /\.(|woff|woff2|eot|ttf)$/,
+  test: /\.(|woff|woff2|eot|ttf|eot)$/,
   loader: 'file',
   query: {
     name: 'fonts/[name]_[hash].[ext]'
   }
 };
 
-/*var scssLoader = {
+var scssLoader = {
   test: /(\.scss)$/,
   loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap')
 }
@@ -44,7 +44,7 @@ var postCSSConfig = function() {
     cssnext(),
     postcssReporter({clearMessages:true})
   ];
-};*/
+};
 
 export default {
   module: {
@@ -55,14 +55,8 @@ export default {
     }, 
     imgLoader,
     fontsLoader,
-    {
-      test: /\.scss$/,
-      loader: 'style!css!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true&includePaths[]=./node_modules'
-    },
-    {
-      test: /\.css$/,
-      loaders: ["style", "css"]
-    },
+    scssLoader,
+    cssLoader,
     {
       test: /\.json$/,
       loader: 'json-loader'
@@ -83,6 +77,6 @@ export default {
   externals: [
     // put your node 3rd party libraries which can't be built with webpack here
     // (mysql, mongodb, and so on..)
-  ]//,
-  //postcss: postCSSConfig
+  ],
+  postcss: postCSSConfig
 };

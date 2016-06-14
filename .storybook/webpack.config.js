@@ -39,7 +39,7 @@ var imgLoader = {
 };
 
 var fontsLoader = {
-  test: /\.(|woff|woff2|eot|ttf)$/,
+  test: /\.(|woff|woff2|eot|ttf|eot)$/,
   loader: 'file',
   query: {
     name: 'fonts/[name]_[hash].[ext]',

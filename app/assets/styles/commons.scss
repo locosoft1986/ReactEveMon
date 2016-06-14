@@ -1,0 +1,52 @@
+@import "~react-toolbox/lib/commons";
+
+ul, ol {
+  list-style: none;
+}
+
+ul.bullets {
+  list-style: inside;
+}
+
+[data-react-toolbox="avatar"] {
+  [data-react-toolbox="font-icon"] {
+    margin: 0;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-sm) {
+  .hide-sm {
+    display:none !important;
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-md) {
+  .hide-md {
+    display:none !important;
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-lg) {
+  .hide-lg {
+    display:none !important;
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-xl) {
+  .hide-xl {
+    display:none !important;
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-xxl) {
+  .hide-xxl {
+    display:none !important;
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-xxxl) {
+  .hide-xxxl {
+    display:none !important;
+  }
+}

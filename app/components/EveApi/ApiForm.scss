@@ -1,0 +1,15 @@
+.apiForm{
+  // @include shadow-4dp();
+  padding:2em;
+  flex:1;
+  max-width: 500px;
+  position: relative;
+
+  .footer {
+    display: flex;
+    margin-top:2em;
+    button {
+      flex: 1;
+    }
+  }
+}
