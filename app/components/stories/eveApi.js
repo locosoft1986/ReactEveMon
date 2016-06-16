@@ -4,7 +4,7 @@ import Container from './Container';
 import ImportChar from '../../components/EveApi/ImportChar';
 import ApiForm from '../../components/EveApi/ApiForm';
 import CharCard from '../../components/EveApi/CharCard';
-import {characters, characterBasicInfo, charFieldsWithoutPortait} from './mocks';
+import {characters, characterBasicInfo, charFieldsSimple} from './mocks';
 import '../../assets/styles/material-icons.css';
 import '../../assets/styles/roboto.css';
 
@@ -33,8 +33,8 @@ storiesOf('Character Card', module)
       <CharCard style={{minWidth: 320, width: '33%'}} content={characterBasicInfo} />
     </Container>
   ))
-  .add('without full portrait', () => (
+  .add('with basic info', () => (
     <Container>
-      <CharCard style={{minWidth: 320, width: '33%', overflow: 'auto'}} content={characterBasicInfo} fields={charFieldsWithoutPortait}/>
+      <CharCard style={{minWidth: 320, width: '33%'}} content={characterBasicInfo} fields={charFieldsSimple}/>
     </Container>
   ));

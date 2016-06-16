@@ -27,8 +27,7 @@ export const characterBasicInfo = {
     paidUntil: '2015-04-03 14:47:57'
   };
 
-export const charFieldsWithoutPortait = ['birthday',
-  'balance', 'skillPoints', 'ship',
-  'corporation',
-  'location', 'securityStatus', 'paidUntil'
+export const charFieldsSimple = [
+  'balance', 'skillPoints',
+  'corporation', 'location', 'paidUntil'
 ];

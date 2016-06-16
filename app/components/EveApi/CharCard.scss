@@ -1,0 +1,29 @@
+@import "~react-toolbox/lib/commons";
+
+.card {
+  width: 345px;
+  height: auto;
+  display: table;
+}
+
+.cardRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  .media {
+    width: 80px;
+    height: 80px;
+    margin: 16px 16px 0 0;
+  }
+  .mediaLarge {
+    width: 140px;
+    height: 140px;
+    margin: 16px;
+  }
+}
+
+.mediaLarge2 {
+  width: 140px;
+  height: 140px;
+  margin: 16px;
+}
