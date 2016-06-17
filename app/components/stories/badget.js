@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook';
-import Badget from '../../components/util/Badget';
+import Badget from '../../components/UI/Badget';
 import Container from './Container'
 
 storiesOf('Badget', module)
