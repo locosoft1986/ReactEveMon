@@ -31,3 +31,31 @@ export const charFieldsSimple = [
   'balance', 'skillPoints',
   'corporation', 'location', 'paidUntil'
 ];
+
+
+export const charListItems = [
+  {
+    id: 795194955,
+    name: 'Dace Kaveira',
+    balance: 5133022644.70,
+    location: 'C9N-CC',
+    currentSkill: 'Target Management',
+    remainingTime: '1d 17h 6mn'
+  },
+  {
+    id: 94843873,
+    name: 'Character A',
+    balance: 123234345.123,
+    location: 'Jita',
+    currentSkill: '',
+    remainingTime: ''
+  },
+  {
+    id: 1444080829,
+    name: 'Character A',
+    balance: 45645645,
+    location: 'XX9',
+    currentSkill: 'Advanced Weapon Upgrades 5',
+    remainingTime: '5d 3h 39mn'
+  }
+];

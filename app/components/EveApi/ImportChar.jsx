@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {AppBar, IconButton, Panel, Sidebar, Avatar, List, ListItem, Button} from 'react-toolbox';
+import {List, ListItem, Button} from 'react-toolbox';
 import {Set} from 'immutable';
 import classnames from 'classnames';
 import {getAvatarUrl, AvatarType} from '../../consts';
