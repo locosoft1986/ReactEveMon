@@ -1,7 +1,7 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook';
 import Badget from '../../components/UI/Badget';
-import Container from './Container'
+import Container from './container'
 
 storiesOf('Badget', module)
   .add('default', () => (

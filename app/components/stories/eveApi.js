@@ -1,6 +1,6 @@
 import React from 'react';
 import {storiesOf, action} from '@kadira/storybook';
-import Container from './Container';
+import Container from './container';
 import ImportChar from '../../components/EveApi/ImportChar';
 import ApiForm from '../../components/EveApi/ApiForm';
 import CharCard from '../../components/EveApi/CharCard';

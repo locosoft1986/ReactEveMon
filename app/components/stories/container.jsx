@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './Container.scss'
+import style from './container.scss'
 
 const Container = ({children}) => {
   return (
