@@ -1,0 +1,15 @@
+@import "~react-toolbox/lib/commons";
+@import "~react-toolbox/lib/app_bar/config";
+@import "~react-toolbox/lib/button/config";
+
+.addButton {
+  position: fixed;
+  bottom: $appbar-height - $button-floating-height;
+  right: $button-floating-height / 2;
+  z-index: $z-index-higher;
+}
+
+.charList {
+  overflow-x: hidden;
+  overflow-y: auto;
+}

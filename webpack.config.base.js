@@ -1,4 +1,5 @@
 import path from 'path';
+var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var postcssImport = require('postcss-import');

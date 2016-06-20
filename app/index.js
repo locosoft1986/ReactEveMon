@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-import './assets/styles/material-icons';
-import './assets/styles/roboto';
+import './assets/styles/material-icons.css';
+import './assets/styles/roboto.css';
 import './assets/styles/commons.scss';
 import './assets/styles/transitions.css';
 import './assets/styles/app.scss';

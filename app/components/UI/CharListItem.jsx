@@ -36,7 +36,7 @@ const CharListItem = ({info, selected, onClick, ...props}) => {
 CharListItem.propTypes = {
   info: PropTypes.object.isRequired,
   selected: PropTypes.bool,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func
 };
 
 export default CharListItem;

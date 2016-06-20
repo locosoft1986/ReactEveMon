@@ -5,11 +5,11 @@ import isEqual from 'lodash/isEqual';
 import intersection from 'lodash/intersection';
 import {getAvatarUrl, AvatarType} from '../../consts';
 
-import scssStyle from './CharCard.scss';
+import style from './CharCard.scss';
 
 const PORTRAIT_SIZE = 256;
 
-const CharCard = ({content, fields, style}) => {
+const CharCard = ({content, fields, ...props}) => {
 
   const {id, name, gender, DoB, race, bloodline, ancestry,
       accountBalance, skillPoints, shipName,
@@ -28,10 +28,10 @@ const CharCard = ({content, fields, style}) => {
   };
 
   return(
-    <Card style={style} className={scssStyle.card}>
-      <div className={scssStyle.cardRow}>
+    <Card {...props} className={style.card}>
+      <div className={style.cardRow}>
         <CardMedia
-          className={scssStyle.mediaLarge}
+          className={style.mediaLarge}
           image={portraitUrl}
         />
         <CardTitle

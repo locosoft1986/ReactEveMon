@@ -1,19 +1,16 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import {List} from 'react-toolbox';
-import CharListItem from '../../components/UI/CharListItem';
+import CharList from '../../components/layouts/CharList';
 import {charListItems} from './mocks';
 
 storiesOf('Character Side List', module)
   .add('default', () => (
-    <List>
-      {charListItems.map(charInfo => <CharListItem key={charInfo.id} info={charInfo} onClick={action('selected', charInfo)}/>)}
-    </List>
+    <CharList characters={charListItems} onSelect={action('selected')} />
   ))
   .add('with item selected', () => (
-    <List>
-      {charListItems.map(charInfo =>
-        <CharListItem key={charInfo.id} info={charInfo}
-                      selected={charInfo.id === 1444080829} onClick={action('selected', charInfo)}/>)}
-    </List>
+    <CharList characters={charListItems} selected={1444080829} onSelect={action('selected')} />
+  ))
+  .add('with no items', () => (
+    <CharList characters={[]} hint={'Here is a test hint'} selected={1444080829} onSelect={action('selected')} />
   ));
