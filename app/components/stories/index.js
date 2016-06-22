@@ -3,3 +3,4 @@ import './badget';
 import './eveApi';
 import './charList';
 import './layouts';
+import './ui';
