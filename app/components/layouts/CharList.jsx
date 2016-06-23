@@ -11,7 +11,6 @@ const CharList = ({characters, hint, selected, onSelect, ...props}) => {
   return (
     <List {...props}>
       {items}
-      <ListItem className={style.placeHolder} key={"-9999"} caption={' '} />
     </List>
   );
 };
