@@ -40,10 +40,10 @@ class MainLayout extends Component{
 
         </NavDrawer>
         <Panel>
-          <Loading loading={loading} timeout={1000}/>
           {children}
-          <Error timeout={5000} error={errors.length > 0 ? errors[0] : null}/>
         </Panel>
+        <Loading loading={loading} timeout={1000}/>
+        <Error timeout={5000} error={errors.length > 0 ? errors[0] : null}/>
       </Layout>
     );
   }
