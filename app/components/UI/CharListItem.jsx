@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {ListItem, ListItemContent, ListItemText} from 'react-toolbox';
 import Avatar from '../Avatar/Avatar';
 import classnames from 'classnames';
-import {getAvatarUrl, AvatarType} from '../../consts';
+import {AvatarType} from '../../consts';
 import style from './CharListItem.scss';
 
 const CharListItem = ({info, selected, onClick, ...props}) => {

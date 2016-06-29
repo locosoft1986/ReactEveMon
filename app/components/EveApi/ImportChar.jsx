@@ -3,7 +3,7 @@ import {List, ListItem, Button} from 'react-toolbox';
 import CharCard from './CharCard';
 import {Set} from 'immutable';
 import classnames from 'classnames';
-import style from './ImportChar.scss'
+import style from './ImportChar.scss';
 
 
 export default class ImportChar extends Component {

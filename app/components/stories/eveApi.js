@@ -22,7 +22,7 @@ storiesOf('EVE API', module)
   ))
   .add('Characters Selection', () => (
     <div>
-      <ImportChar characters={characters} onImport={action('onImportChar')} onCancel={action('onCancelImport')}/>
+      <ImportChar characters={characters.slice(0, 3)} onImport={action('onImportChar')} onCancel={action('onCancelImport')}/>
     </div>
   ));
 

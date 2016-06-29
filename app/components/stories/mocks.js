@@ -37,6 +37,71 @@ export const characters = [
     skillPoints: 416130,
     corporation: 'Corporation C',
     lastKnownLocation: 'Location C'
+  },
+  {
+    id: 985265753,
+    name: 'Character D',
+    gender: 'Male',
+    DoB: '2009-01-15 18:42:00',
+    race: 'Minmatar',
+    bloodline: 'Brutor',
+    ancestry: 'Slave Child',
+    accountBalance: 513300,
+    skillPoints: 416130,
+    corporation: 'Corporation C',
+    lastKnownLocation: 'Location C'
+  },
+  {
+    id: 1777198370,
+    name: 'Character E',
+    gender: 'Male',
+    DoB: '2009-01-15 18:42:00',
+    race: 'Minmatar',
+    bloodline: 'Brutor',
+    ancestry: 'Slave Child',
+    accountBalance: 513300,
+    skillPoints: 416130,
+    corporation: 'Corporation C',
+    lastKnownLocation: 'Location C'
+  },
+  {
+    id: 1444080829,
+    name: 'Character F',
+    gender: 'Male',
+    DoB: '2009-01-15 18:42:00',
+    race: 'Minmatar',
+    bloodline: 'Brutor',
+    ancestry: 'Slave Child',
+    accountBalance: 513300,
+    skillPoints: 416130,
+    corporation: 'Corporation C',
+    lastKnownLocation: 'Location C'
+  },
+  {
+    id: 624049117,
+    name: 'Character G',
+    gender: 'Male',
+    DoB: '2009-01-15 18:42:00',
+    race: 'Minmatar',
+    bloodline: 'Brutor',
+    ancestry: 'Slave Child',
+    accountBalance: 513300,
+    skillPoints: 416130,
+    corporation: 'Corporation C',
+    lastKnownLocation: 'Location C'
+  },
+  {
+    id: 1814798395,
+    name: 'Character H',
+    gender: 'Male',
+    DoB: '2009-01-15 18:42:00',
+    race: 'Minmatar',
+    bloodline: 'Brutor',
+    ancestry: 'Slave Child',
+    accountBalance: 513300,
+    skillPoints: 416130,
+    corporation: 'Corporation C',
+    lastKnownLocation: 'Location C'
   }
 ];
 
