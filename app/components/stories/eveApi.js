@@ -15,6 +15,7 @@ storiesOf('EVE API', module)
       <ApiForm
         formContent={{key:"", code:""}}
         onSubmit={action('submitApi')}
+        onCancel={action('cancel')}
         label="Import API"
       />
     </Container>

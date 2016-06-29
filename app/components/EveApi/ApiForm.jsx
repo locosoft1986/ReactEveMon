@@ -53,14 +53,14 @@ export default class ApiForm extends Component {
 
   render() {
     const {content:{key, code}} = this.state;
-    const {label} = this.props;
+    const {label, onCancel} = this.props;
 
     return(
       <div className={style.apiForm}>
         <Input key="key" type='text' icon='lock' label='Api Key' value={key} onChange={this.handleChangeValue.bind(this, "key")} required/>
         <Input key="code" type='text' icon='code' label='Api Code' value={code} onChange={this.handleChangeValue.bind(this, "code")} required/>
         <section className={style.footer}>
-          
+          <Button label={'Cancel'} onClick={onCancel} flat/>
           <Button label={label} onClick={this.handleSubmit} disabled={!this.isRequiredFilled()} raised accent/>
         </section>
       </div>
@@ -78,5 +78,6 @@ ApiForm.defaultProps = {
 ApiForm.propTypes = {
   formContent: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired
 };

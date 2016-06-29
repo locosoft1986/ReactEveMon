@@ -37,12 +37,7 @@ const CharCard = ({content, selected, ...props}) => {
         <CardText>{`Corporation: ${corporation}`}</CardText>
         <CardText>{`Current Location: ${lastKnownLocation}`}</CardText>
       </Card>
-      {
-        do {
-          if(!!selected) <FontIcon className={style.check} value="check_circle"/>
-        }
-      }
-
+      {!!selected && <FontIcon className={style.check} value="check_circle"/> }
     </div>
 
   );
