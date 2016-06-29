@@ -1,11 +1,10 @@
 import React, {Component, PropTypes} from 'react';
 import {List, ListItem, Button} from 'react-toolbox';
+import CharCard from './CharCard';
 import {Set} from 'immutable';
 import classnames from 'classnames';
-import {getAvatarUrl, AvatarType} from '../../consts';
 import style from './ImportChar.scss'
 
-const AVATAR_SIZE = 256;
 
 export default class ImportChar extends Component {
   constructor(props) {
@@ -39,34 +38,34 @@ export default class ImportChar extends Component {
   };
 
   render() {
-    const {characters} = this.props;
+    const {characters, onCancel} = this.props;
     const {selectedCharSet} = this.state;
 
-    const charItems = characters.map(char=>{
+    const charItems = characters.map((char, index) =>{
       const isSelected = selectedCharSet.has(char.id);
-      const right = isSelected ? 'check' : undefined;
-      const itemStyle = classnames({[style.listItem]: true, [style.selected]: isSelected});
-      const avatar = getAvatarUrl(char.id, AVATAR_SIZE, AvatarType.Character);
       return (
-        <ListItem
-          key={char.id}
-          className={itemStyle}
-          avatar={avatar}
-          caption={char.name}
-          rightIcon={right}
-          onClick={this.onSelect(char)}
-        />
+        <div key={index} className={style.col}>
+          <CharCard
+            className={style.item}
+            content={char}
+            selected={isSelected}
+            onClick={this.onSelect(char)}
+          />
+        </div>
       )
     });
 
     return (
-      <div className={style.importChar}>
-        <List className={style.charList}  selectable ripple>
+      <div className={style.container}>
+        <div className={style.importChar}>
           {charItems}
-        </List>
-        <section className={style.footer}>
-          <Button label={'Import Character(s)'} onClick={this.handleImport} disabled={!this.isItemSelected()} raised accent/>
-        </section>
+        </div>
+        <div className={style.footer}>
+          <div className={style.actions}>
+            <Button label={'Cancel'} onClick={onCancel} flat/>
+            <Button label={'Import Character(s)'} onClick={this.handleImport} disabled={!this.isItemSelected()} raised accent/>
+          </div>
+        </div>
       </div>
     );
   }
@@ -79,5 +78,9 @@ ImportChar.defaultProps = {
 
 ImportChar.propTypes = {
   characters: PropTypes.array.isRequired,
-  onImport: PropTypes.func.isRequired
+  onImport: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired
 };
+
+
+

@@ -60,6 +60,7 @@ export default class ApiForm extends Component {
         <Input key="key" type='text' icon='lock' label='Api Key' value={key} onChange={this.handleChangeValue.bind(this, "key")} required/>
         <Input key="code" type='text' icon='code' label='Api Code' value={code} onChange={this.handleChangeValue.bind(this, "code")} required/>
         <section className={style.footer}>
+          
           <Button label={label} onClick={this.handleSubmit} disabled={!this.isRequiredFilled()} raised accent/>
         </section>
       </div>

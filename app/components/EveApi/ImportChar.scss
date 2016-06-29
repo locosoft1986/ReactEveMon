@@ -1,33 +1,53 @@
 @import "~react-toolbox/lib/commons";
 
-.importChar {
-  padding:2em;
-  flex:1;
-  max-width: 800px;
-  position: relative;
-
-  .charList{
-    .listItem {
-      border-bottom: 1px solid #f0f0f0;
-      &.selected {
-        background-color: $palette-blue-50;
-      }
-
-      .avatar{
-        background-color: $color-accent-dark;
-        [data-react-toolbox="font-icon"] {
-          margin: 0;
-          width: auto;
-        }
-      }
+.container {
+  display: block;
+  padding: 6px;
+  .importChar {
+    display: inline-flex;
+    width: 100%;
+    position: relative;
+    margin-right: -15px;
+    margin-left: -15px;
+    &:before {
+      display: table;
+      content: " ";
     }
+
+    &:after {
+      clear: both;
+    }
+
+    .col {
+      display: block;
+      position: relative;
+      min-height: 1px;
+      padding-right: 15px;
+      padding-left: 15px;
+      float: left;
+      width: 33.33%;
+    }
+    .item {
+      display: block;
+      width: 30%;
+      margin: 8px;
+    }
+
+
   }
 
+
   .footer {
-    display: flex;
-    margin-top:2em;
-    button {
-      flex: 1;
+    position: relative;
+    display: block;
+    margin-top:1em;
+    text-align: center;
+
+    .actions {
+      margin: auto;
+      button {
+        margin: 1em;
+      }
     }
   }
 }

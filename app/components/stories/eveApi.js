@@ -4,7 +4,7 @@ import Container from './container';
 import ImportChar from '../../components/EveApi/ImportChar';
 import ApiForm from '../../components/EveApi/ApiForm';
 import CharCard from '../../components/EveApi/CharCard';
-import {characters, characterBasicInfo, charFieldsSimple} from './mocks';
+import {characters, characterBasicInfo} from './mocks';
 import '../../assets/styles/material-icons.css';
 import '../../assets/styles/roboto.css';
 
@@ -20,21 +20,21 @@ storiesOf('EVE API', module)
     </Container>
   ))
   .add('Characters Selection', () => (
-    <Container>
-      <ImportChar characters={characters} onImport={action('onImportChar')}/>
-    </Container>
+    <div>
+      <ImportChar characters={characters} onImport={action('onImportChar')} onCancel={action('onCancelImport')}/>
+    </div>
   ));
 
 
 
 storiesOf('Character Card', module)
   .add('default', () => (
-    <Container>
-      <CharCard style={{minWidth: 320, width: '33%'}} content={characterBasicInfo} />
-    </Container>
+    <div style={{width: '30%'}}>
+      <CharCard content={characterBasicInfo} />
+    </div>
   ))
-  .add('with basic info', () => (
-    <Container>
-      <CharCard style={{minWidth: 320, width: '33%'}} content={characterBasicInfo} fields={charFieldsSimple}/>
-    </Container>
+  .add('selected', () => (
+    <div style={{width: '30%'}}>
+      <CharCard content={characterBasicInfo} selected={true} />
+    </div>
   ));
