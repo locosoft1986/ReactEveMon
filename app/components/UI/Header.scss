@@ -1,0 +1,10 @@
+@import "~react-toolbox/lib/commons";
+
+.header {
+  display: flex;
+  > .logo {
+    flex-grow: 1;
+    font-size: 1.8 * $unit;
+    font-weight: bold;
+  }
+}

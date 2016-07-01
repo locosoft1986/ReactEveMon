@@ -1,3 +1,5 @@
+@import "~react-toolbox/lib/commons";
+
 .fullScreen{
   position: fixed;
   top:0;
@@ -6,3 +8,14 @@
   left:0;
 }
 
+.testWindow {
+  position: fixed;
+  width: 800px;
+  height: 600px;
+}
+
+.breadcrumb {
+  flex-grow: 1;
+  font-size: 1.8 * $unit;
+  font-weight: normal;
+}

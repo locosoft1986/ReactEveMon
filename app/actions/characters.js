@@ -1,3 +1,10 @@
+export function load() {
+  return {
+    type: 'CHAR_LOAD'
+  }
+}
+
+
 export function add() {
   return {
     type: 'CHAR_ADD'

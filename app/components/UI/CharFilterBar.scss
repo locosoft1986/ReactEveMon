@@ -1,0 +1,26 @@
+@import "~react-toolbox/lib/commons";
+@import "~react-toolbox/lib/input/config";
+.container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+
+  .cancel {
+    position: absolute;
+    margin: auto 0.5em auto auto;
+    right: 0;
+    top: 0;
+    text-align: center;
+  }
+
+  .cancel > span {
+    margin: auto;
+    line-height: $input-field-height + $input-padding;
+    color: $input-text-label-color;
+
+    &:hover {
+      color: $input-text-highlight-color;
+      cursor: pointer;
+    }
+  }
+}

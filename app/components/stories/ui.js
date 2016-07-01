@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import {List} from 'react-toolbox';
-import Collapsible from '../../components/UI/Collapsible';
-import CharGrid from '../../components/UI/CharGrid';
+import {Collapsible, CharGrid, Header, CharFilterBar} from '../../components/UI';
 import CharList from '../../components/layouts/CharList';
 import {characters, charListItems} from './mocks';
+import style from './style.scss';
 
 storiesOf('UI', module)
   .add('Collapsible with List', () => (
@@ -27,4 +27,12 @@ storiesOf('UI', module)
     <div style={{position: 'relative', display: 'block'}}>
       <CharGrid characters={characters} onSelect={action('Selected')} />
     </div>
+  ))
+  .add('Header', () => (
+    <Header>
+      <span className={style.breadcrumb}>Root / Test</span>
+    </Header>
+  ))
+  .add('CharFilterBar', () => (
+    <CharFilterBar onFilterChange={() => {}}/>
   ));

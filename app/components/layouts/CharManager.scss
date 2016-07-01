@@ -1,0 +1,33 @@
+@import "~react-toolbox/lib/commons";
+@import "~react-toolbox/lib/app_bar/config";
+
+.fullScreen{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: $palette-grey-100;
+
+  .inner {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    padding-top: ($appbar-height * 2 + 4);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .filter {
+    position: fixed;
+    z-index: $z-index-high;
+    top: ($appbar-height);
+    width: 100%;
+    background-color: $palette-grey-100;
+  }
+}
+
+.title {
+  flex-grow: 1;
+  font-size: 1.8 * $unit;
+  font-weight: normal;
+}
