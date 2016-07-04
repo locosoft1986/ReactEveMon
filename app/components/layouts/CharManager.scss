@@ -1,5 +1,6 @@
 @import "~react-toolbox/lib/commons";
 @import "~react-toolbox/lib/app_bar/config";
+@import "~react-toolbox/lib/button/config";
 
 .fullScreen{
   position: absolute;
@@ -13,6 +14,7 @@
     top: 0;
     bottom: 0;
     padding-top: ($appbar-height * 2 + 4);
+    padding-bottom: $appbar-height;
     overflow-y: auto;
     overflow-x: hidden;
   }
@@ -30,4 +32,11 @@
   flex-grow: 1;
   font-size: 1.8 * $unit;
   font-weight: normal;
+}
+
+.addButton {
+  position: fixed;
+  bottom: $appbar-height - $button-floating-height;
+  right: $button-floating-height / 2;
+  z-index: $z-index-higher;
 }

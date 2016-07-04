@@ -12,6 +12,7 @@ storiesOf('Layouts', module)
     };
 
     return (
-      <CharManager characters={characters} charActions={actions} onSelect={action('select character')}/>
+      <CharManager characters={characters} charActions={actions} onSelect={action('select character')}
+                    onImport={action('import new character')}/>
     )
   });

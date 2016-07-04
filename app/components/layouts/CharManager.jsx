@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import {Layout, Panel} from 'react-toolbox';
+import {Layout, Panel, Button} from 'react-toolbox';
 import {CharGrid, Header, CharFilterBar} from '../UI';
 import style from './CharManager.scss';
 
@@ -26,7 +26,7 @@ class CharManager extends Component {
 
   render() {
     const { filter } = this.state;
-    const { characters, onSelect } = this.props;
+    const { characters, onSelect, onImport } = this.props;
     const filteredCharacters = this.filterCharacters(filter, characters);
 
     return (
@@ -40,6 +40,7 @@ class CharManager extends Component {
         <Panel className={style.inner}>
           <CharGrid characters={filteredCharacters} onSelect={onSelect} />
         </Panel>
+        <Button className={style.addButton} icon='add' floating accent onClick={onImport}/>
       </div>
     )
   }
@@ -49,7 +50,8 @@ class CharManager extends Component {
 CharManager.PropTypes = {
   characters: PropTypes.array.isRequired,
   charActions: PropTypes.object.isRequired,
-  onSelect: PropTypes.func.isRequired
+  onSelect: PropTypes.func.isRequired,
+  onImport: PropTypes.func.isRequired
 };
 
 
