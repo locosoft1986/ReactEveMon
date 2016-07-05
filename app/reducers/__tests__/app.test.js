@@ -4,7 +4,7 @@ describe('app reducer', ()=>{
   let app;
 
   beforeEach(()=>{
-    app = require('../app').default;
+    app = require('../app');
   });
 
   describe('action in REQUEST phase',() => {

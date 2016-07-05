@@ -4,7 +4,7 @@ describe('asyncMiddleware', ()=>{
   let store, next, asyncMiddleware;
 
   beforeEach(()=>{
-    asyncMiddleware = require('../asyncMiddleware').default;
+    asyncMiddleware = require('../asyncMiddleware');
     store = {}
     next = jest.fn();
   });
