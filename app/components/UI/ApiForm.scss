@@ -1,9 +1,17 @@
+@import "~react-toolbox/lib/commons";
+
 .apiForm{
   // @include shadow-4dp();
   padding:2em;
   flex:1;
   max-width: 500px;
   position: relative;
+
+  .alertDanger {
+    color: $palette-red-900;
+    background-color: $palette-pink-50;
+    border-color: $palette-pink-100;
+  }
 
   .footer {
     display: flex;

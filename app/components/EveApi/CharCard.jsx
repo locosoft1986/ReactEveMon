@@ -12,13 +12,13 @@ const PORTRAIT_SIZE = 512;
 
 const CharCard = ({content, selected, ...props}) => {
 
-  const {id, name, gender, DoB, race, bloodline, ancestry,
+  const {characterID, characterName, gender, DoB, race, bloodline, ancestry,
       accountBalance, skillPoints,
       corporation,
       lastKnownLocation
     } = content;
 
-  const portraitUrl = getAvatarUrl(id, PORTRAIT_SIZE, AvatarType.Character);
+  const portraitUrl = getAvatarUrl(characterID, PORTRAIT_SIZE, AvatarType.Character);
 
   return(
     <div className={style.container}>
@@ -28,7 +28,7 @@ const CharCard = ({content, selected, ...props}) => {
           image={portraitUrl}
         />
         <CardTitle
-          title={name}
+          title={characterName}
           subtitle={`${gender} - ${race} - ${bloodline} - ${ancestry}`}
         />
         <CardText>{`Balance: ${accountBalance} ISK`}</CardText>
@@ -46,8 +46,8 @@ const CharCard = ({content, selected, ...props}) => {
 
 CharCard.defaultProps ={
   content: {
-    id: 0,
-    name: '',
+    characterID: 0,
+    characterName: '',
     gender: '',
     DoB: '',
     race: '',

@@ -4,7 +4,6 @@ export function load() {
   }
 }
 
-
 export function add() {
   return {
     type: 'CHAR_ADD'

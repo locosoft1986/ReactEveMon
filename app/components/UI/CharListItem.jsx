@@ -6,7 +6,7 @@ import {AvatarType} from '../../consts';
 import style from './CharListItem.scss';
 
 const CharListItem = ({info, selected, onClick, ...props}) => {
-  const {id, name, balance, location, currentSkill, remainingTime} = info;
+  const {characterID, characterName, balance, location, currentSkill, remainingTime} = info;
 
   const onSelected = () => {
     onClick(info);
@@ -16,9 +16,9 @@ const CharListItem = ({info, selected, onClick, ...props}) => {
 
   return (
     <ListItem className={itemStyle} onClick={onSelected} {...props}>
-      <Avatar id={id} size={256} type={AvatarType.Character}/>
+      <Avatar id={characterID} size={256} type={AvatarType.Character}/>
       <ListItemContent>
-        <ListItemText primary>{name}</ListItemText>
+        <ListItemText primary>{characterName}</ListItemText>
         <ListItemText primary>{location}</ListItemText>
         <ListItemText>{balance}</ListItemText>
 

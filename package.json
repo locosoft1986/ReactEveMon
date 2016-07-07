@@ -15,7 +15,7 @@
     "package": "cross-env NODE_ENV=production node -r babel-register package.js",
     "package-all": "npm run package -- --all",
     "dev": "concurrently -s last --kill-others \"npm run hot-server\" \"npm run start-hot\"",
-    "test": "set BABEL_DISABLE_CACHE = 1 && jest"
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^0.12.0",

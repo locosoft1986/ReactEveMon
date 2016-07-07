@@ -35,7 +35,7 @@ const character = {
     return this.load(charSet);
   },
 
-  listFromApi(keyID, vCode) {
+  apiInfo(keyID, vCode) {
     //Replace the 'key' tag in the xml to avoid stackoverflow bug in the xml2json lite
     const replaceKeyStr = (xml) => {
       return xml.replace(/<key/g, '<keyInfo').replace(/<\/key>/g, '</keyInfo>');

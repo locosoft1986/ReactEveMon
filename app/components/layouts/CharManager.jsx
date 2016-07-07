@@ -21,12 +21,12 @@ class CharManager extends Component {
 
   filterCharacters = (name, characters) => {
     const regex = RegExp(name, 'i');
-    return characters.filter(char => regex.test(char.name));
+    return characters.filter(char => regex.test(char.characterName));
   };
 
   render() {
     const { filter } = this.state;
-    const { characters, onSelect, onImport } = this.props;
+    const { characters, onSelect, onNewApi } = this.props;
     const filteredCharacters = this.filterCharacters(filter, characters);
 
     return (
@@ -40,7 +40,7 @@ class CharManager extends Component {
         <Panel className={style.inner}>
           <CharGrid characters={filteredCharacters} onSelect={onSelect} />
         </Panel>
-        <Button className={style.addButton} icon='add' floating accent onClick={onImport}/>
+        <Button className={style.addButton} icon='add' floating accent onClick={onNewApi}/>
       </div>
     )
   }
@@ -51,7 +51,7 @@ CharManager.PropTypes = {
   characters: PropTypes.array.isRequired,
   charActions: PropTypes.object.isRequired,
   onSelect: PropTypes.func.isRequired,
-  onImport: PropTypes.func.isRequired
+  onNewApi: PropTypes.func.isRequired
 };
 
 

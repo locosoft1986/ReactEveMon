@@ -1,10 +1,12 @@
 import React, {Component, PropTypes} from 'react'
 import { Button } from 'react-toolbox/lib/button';
 import Input from 'react-toolbox/lib/input';
+import Dialog from 'react-toolbox/lib/dialog';
+import Alert from './Alert';
 import style from './ApiForm.scss';
-import classnames from 'classnames'
-import isEqual from 'lodash/isEqual'
-import intersection from 'lodash/intersection'
+import classnames from 'classnames';
+import isEqual from 'lodash/isEqual';
+import intersection from 'lodash/intersection';
 
 const fields = ['key', 'code'];
 
@@ -12,13 +14,10 @@ export default class ApiForm extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {content: props.formContent}
-  }
-
-  componentWillReceiveProps(newProps) {
-    if (newProps.formContent != this.props.formContent) {
-      this.setState({content: newProps.formContent});
-    }
+    this.state = {content: {
+      key: '',
+      code: ''
+    }}
   }
 
   isRequiredFilled() {
@@ -53,31 +52,36 @@ export default class ApiForm extends Component {
 
   render() {
     const {content:{key, code}} = this.state;
-    const {label, onCancel} = this.props;
+    const {onCancel, active, busy} = this.props;
 
     return(
-      <div className={style.apiForm}>
-        <Input key="key" type='text' icon='lock' label='Api Key' value={key} onChange={this.handleChangeValue.bind(this, "key")} required/>
-        <Input key="code" type='text' icon='code' label='Api Code' value={code} onChange={this.handleChangeValue.bind(this, "code")} required/>
-        <section className={style.footer}>
-          <Button label={'Cancel'} onClick={onCancel} flat/>
-          <Button label={label} onClick={this.handleSubmit} disabled={!this.isRequiredFilled()} raised accent/>
-        </section>
-      </div>
+      <Dialog active={active}
+              onEscKeyDown={onCancel}
+              onOverlayClick={onCancel}
+              title='New API'>
+
+        <div className={style.apiForm}>
+          <Input key="key" type='text' icon='lock' label='Api Key' value={key}
+                 onChange={this.handleChangeValue.bind(this, "key")} required/>
+          <Input key="code" type='text' icon='code' label='Api Code' value={code}
+                 onChange={this.handleChangeValue.bind(this, "code")} required/>
+
+          <section className={style.footer}>
+            <Button label={'Cancel'} onClick={onCancel} disabled={busy} flat/>
+            <Button label={'Next'} onClick={this.handleSubmit}
+                    disabled={!this.isRequiredFilled() || busy} raised accent/>
+          </section>
+        </div>
+
+      </Dialog>
     );
   }
 }
 
-ApiForm.defaultProps = {
-  formContent: {
-    key: "",
-    code: ""
-  }
-};
 
 ApiForm.propTypes = {
-  formContent: PropTypes.object.isRequired,
-  label: PropTypes.string.isRequired,
+  active: PropTypes.bool.isRequired,
+  busy: PropTypes.bool,
   onSubmit: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired
 };

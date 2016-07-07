@@ -5,3 +5,9 @@ export function to(path){
     dispatch(push(path));
   }
 }
+
+export function newApi() {
+  return {
+    type: 'APIFORM_NEW'
+  }
+}

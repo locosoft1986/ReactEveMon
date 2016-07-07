@@ -13,6 +13,6 @@ storiesOf('Layouts', module)
 
     return (
       <CharManager characters={characters} charActions={actions} onSelect={action('select character')}
-                    onImport={action('import new character')}/>
+                   onNewApi={action('import new character')}/>
     )
   });

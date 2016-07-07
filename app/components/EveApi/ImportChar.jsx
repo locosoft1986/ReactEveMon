@@ -29,10 +29,10 @@ export default class ImportChar extends Component {
     return () => {
       const {selectedCharSet} = this.state;
 
-      if(selectedCharSet.has(char.id)) {
-        this.setState({selectedCharSet: selectedCharSet.remove(char.id)});
+      if(selectedCharSet.has(char.characterID)) {
+        this.setState({selectedCharSet: selectedCharSet.remove(char.characterID)});
       } else {
-        this.setState({selectedCharSet: selectedCharSet.add(char.id)});
+        this.setState({selectedCharSet: selectedCharSet.add(char.characterID)});
       }
     };
   };
@@ -42,7 +42,7 @@ export default class ImportChar extends Component {
     const {selectedCharSet} = this.state;
 
     const charItems = characters.map((char, index) =>{
-      const isSelected = selectedCharSet.has(char.id);
+      const isSelected = selectedCharSet.has(char.characterID);
       return (
         <div key={index} className={style.col}>
           <CharCard

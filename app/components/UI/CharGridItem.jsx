@@ -5,7 +5,7 @@ import {getAvatarUrl, AvatarType} from '../../consts';
 
 const PORTRAIT_SIZE = 256;
 const CharGridItem = ({character, onSelect, ...props}) => {
-  const {id, name, gender, race, bloodline, ancestry} = character;
+  const {characterName, gender, race, bloodline, ancestry} = character;
   const portraitUrl = getAvatarUrl(id, PORTRAIT_SIZE, AvatarType.Character);
 
   const onHandleClick = () => onSelect(character);
@@ -17,7 +17,7 @@ const CharGridItem = ({character, onSelect, ...props}) => {
         image={portraitUrl}
       />
       <CardTitle
-        title={name}
+        title={characterName}
         subtitle={`${gender} - ${race} - ${bloodline} - ${ancestry}`}
       />
     </Card>
