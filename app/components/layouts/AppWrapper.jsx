@@ -3,15 +3,17 @@ import {Layout, Panel, NavDrawer, Button} from 'react-toolbox';
 import AppBar from 'react-toolbox/lib/app_bar';
 import Loading from '../UI/Loading';
 import Error from '../UI/Error';
+import ApiForm from '../UI/ApiForm';
 import CharList from './CharList';
-import style from './MainLayout.scss';
+import style from './AppWrapper.scss';
 
-const AppWrapper = ({loading, errors, children}) => {
+const AppWrapper = ({loading, errors, children, apiform: {active, busy}}) => {
   return (
-    <div>
+    <div className={style.wrapper}>
       {children}
       <Loading loading={loading} timeout={1000}/>
       <Error timeout={5000} error={errors.length > 0 ? errors[0] : null}/>
+      <ApiForm active={active} busy={busy}/>
     </div>
   )
 };
