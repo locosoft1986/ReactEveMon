@@ -42,7 +42,7 @@ var fontsLoader = {
   test: /\.(|woff|woff2|eot|ttf|eot)$/,
   loader: 'file',
   query: {
-    name: 'fonts/[name]_[hash].[ext]',
+    name: 'fonts/[name]_[hash].[ext]'
   }
 };
 
@@ -55,7 +55,7 @@ module.exports = {
   },
   module: {
     context: path.join(__dirname, '..', 'app'),
-    loaders: [jsLoader, cssLoader, scssLoader, fontsLoader, imgLoader],
+    loaders: [jsLoader, cssLoader, scssLoader, fontsLoader, imgLoader]
   },
 
   postcss: postCSSConfig

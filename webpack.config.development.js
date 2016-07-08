@@ -2,6 +2,8 @@
 import webpack from 'webpack';
 import baseConfig from './webpack.config.base';
 
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 const config = {
   ...baseConfig,
 
@@ -24,6 +26,7 @@ const config = {
 
   plugins: [
     ...baseConfig.plugins,
+    new ExtractTextPlugin('style.css', {allChunks: true}),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({

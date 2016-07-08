@@ -8,6 +8,15 @@ var postcssReporter = require('postcss-reporter');
 var cssnext = require("postcss-cssnext");
 var postcssMixins = require('postcss-mixins');
 
+// Using local preset discard .babelrc
+// https://github.com/gaearon/react-transform-hmr/issues/5#issuecomment-142313637
+var jsLoader = {
+  test: /\.js$|\.jsx$/,
+  loaders: ['babel-loader'],
+  include: path.join(__dirname, '.', 'app'),
+  exclude: path.join(__dirname, '.', 'node_modules')
+};
+
 var imgLoader = {
   test: /\.(png|jpg|jpeg|gif|svg)$/,
   loader: 'url',
@@ -28,17 +37,22 @@ var fontsLoader = {
 var scssLoader = {
   test: /(\.scss)$/,
   loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap')
-}
+};
 
 var cssLoader = {
   test: /(\.css)$/,
   loader: ExtractTextPlugin.extract('style', 'css!postcss')
-}
+};
+
+var htmlLoader = {
+  test: /\.html$/,
+  loader: 'html'
+};
 
 var postCSSConfig = function() {
   return [
     postcssImport({
-      path: path.join(__dirname, './app', 'styles'),
+      path: path.join(__dirname, './app/assets', 'styles'),
       addDependencyTo: webpack
     }),
     postcssMixins(),
@@ -49,19 +63,18 @@ var postCSSConfig = function() {
 
 export default {
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      loaders: ['babel-loader'],
-      exclude: /node_modules/
-    }, 
-    imgLoader,
-    fontsLoader,
-    scssLoader,
-    cssLoader,
-    {
-      test: /\.json$/,
-      loader: 'json-loader'
-    }]
+    loaders: [
+      jsLoader,
+      imgLoader,
+      fontsLoader,
+      scssLoader,
+      cssLoader,
+      htmlLoader,
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      }
+    ]
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -69,8 +82,11 @@ export default {
     libraryTarget: 'commonjs2'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
-    packageMains: ['webpack', 'browser', 'web', 'browserify', ['jam', 'main'], 'main']
+    extensions: ['', '.js', '.jsx', 'css', 'scss'],
+    //packageMains: ['webpack', 'browser', 'web', 'browserify', ['jam', 'main'], 'main'],
+    modulesDirectories: [
+      'src', 'node_modules'
+    ]
   },
   plugins: [
 
