@@ -1,8 +1,4 @@
-export function load() {
-  return {
-    type: 'CHAR_LOAD'
-  }
-}
+import CharAPI from '../api/Character';
 
 export function add() {
   return {
@@ -10,16 +6,20 @@ export function add() {
   }
 }
 
+export function restoreCharacters(charSet) {
+  return (dispatch) => {
+    if(!!charSet && Object.keys(charSet).length > 0) {
+      dispatch({
+        type: 'RESTORE_CHARACTERS',
+        charSet
+      })
+    }
+  };
+}
+
 export function remove(id) {
   return {
     type: 'CHAR_REMOVE',
     id
-  }
-}
-
-export function select(info) {
-  return {
-    type: 'CHAR_SELECT',
-    info
   }
 }

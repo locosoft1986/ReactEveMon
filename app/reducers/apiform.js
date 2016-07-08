@@ -6,16 +6,16 @@ const initialState = {
 
 export default function apiform(state=initialState, action) {
   switch(action.type){
-    case 'APIFORM_REQUEST':
-      return Object.assign({}, state, {busy: true});
-
     case 'APIFORM_NEW':
+      return Object.assign({}, state, {active: true, busy: false});
+
+    case 'APIFORM_IMPORT_REQUEST':
       return Object.assign({}, state, {active: true, busy: true});
 
-    case 'APIFORM_SUCCESS':
+    case 'APIFORM_IMPORT_SUCCESS':
       return Object.assign({}, state, {active: false, busy: false});
 
-    case 'APIFORM_FAILURE':
+    case 'APIFORM_IMPORT_FAILURE':
       return Object.assign({}, state, {busy: false});
 
     case 'APIFORM_CANCEL':

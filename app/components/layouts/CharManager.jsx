@@ -10,11 +10,6 @@ class CharManager extends Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    const {charActions: {load}} = this.props;
-    load();
-  }
-
   onFilterChange = (value) => {
     this.setState({ filter: value });
   };
@@ -49,7 +44,6 @@ class CharManager extends Component {
 
 CharManager.PropTypes = {
   characters: PropTypes.array.isRequired,
-  charActions: PropTypes.object.isRequired,
   onSelect: PropTypes.func.isRequired,
   onNewApi: PropTypes.func.isRequired
 };

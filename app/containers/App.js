@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import AppWrapper from '../components/layouts/AppWrapper';
-import {charActions} from 'actions';
+import {appActions} from '../actions';
 
 
 function mapStateToProps(state, ownProps){
@@ -14,4 +14,11 @@ function mapStateToProps(state, ownProps){
   }
 }
 
-export default connect(mapStateToProps)(AppWrapper);
+function mapDispatch(dispatch) {
+  return {
+    onApiSubmit: bindActionCreators(appActions.apiImport, dispatch),
+    onApiCancel: bindActionCreators(appActions.newApiCancel, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatch)(AppWrapper);

@@ -21,7 +21,7 @@ class CharGrid extends Component {
     const { characters, onSelect } = this.props;
 
     if (!characters.length) {
-      return <p>{'No results'}</p>;
+      return <p>{'No results, Please click + button in the right-bottom corner to add characters'}</p>;
     }
 
     return (

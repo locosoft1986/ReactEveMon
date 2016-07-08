@@ -7,13 +7,13 @@ import ApiForm from '../UI/ApiForm';
 import CharList from './CharList';
 import style from './AppWrapper.scss';
 
-const AppWrapper = ({loading, errors, children, apiform: {active, busy}}) => {
+const AppWrapper = ({loading, errors, children, onApiSubmit, onApiCancel, apiform: {active, busy}}) => {
   return (
     <div className={style.wrapper}>
       {children}
       <Loading loading={loading} timeout={1000}/>
       <Error timeout={5000} error={errors.length > 0 ? errors[0] : null}/>
-      <ApiForm active={active} busy={busy}/>
+      <ApiForm active={active} busy={busy} onSubmit={onApiSubmit} onCancel={onApiCancel}/>
     </div>
   )
 };
@@ -24,7 +24,9 @@ AppWrapper.defaultProps = {
 
 AppWrapper.PropTypes = {
   loading: PropTypes.object,
-  errors: PropTypes.array
+  errors: PropTypes.array,
+  onApiSubmit: PropTypes.func.isRequired,
+  onApiCancel: PropTypes.func.isRequired
 };
 
 

@@ -12,12 +12,21 @@ function parseInfo(json) {
 }
 
 const character = {
-  load(charSet) {
+
+  info(characterID) {
+    return fetch('/eve/CharacterInfo.xml.aspx', {characterID})
+            .then(json => parseInfo(json))
+  },
+
+  loadSet(charSet) {
     return new Promise((resolve, reject) => {
       if(!!charSet) {
         let loadCharRequests = Object.keys(charSet).map(characterID => {
-          return fetch('/eve/CharacterInfo.xml.aspx', {characterID})
-            .then(info => parseInfo(info));
+          return this.info(characterID)
+            .then(info => {
+              const {keyID, vCode, accessMask} = charSet[characterID];
+              return Object.assign({}, info, {keyID, vCode, accessMask});
+            })
         });
 
         return Promise.all(loadCharRequests).then(results => {
@@ -31,8 +40,7 @@ const character = {
   },
 
   loadFromStorage() {
-    const charSet = Storage.charSet;
-    return this.load(charSet);
+    return Storage.charSet;
   },
 
   apiInfo(keyID, vCode) {
@@ -45,8 +53,16 @@ const character = {
         .then(info => {
           const {eveapi} = info;
           if(!!eveapi.result) {
-            const {keyInfo} = eveapi.result;
-            resolve(rowset(keyInfo));
+            const keyinfo = rowset(eveapi.result.keyInfo);
+            const idSet = keyinfo.characters.reduce((memo, char) => {
+              memo[char.characterID] = {
+                keyID, vCode,
+                accessMask: keyinfo.accessMask
+              };
+              return memo;
+            }, {});
+
+            return this.loadSet(idSet).then(charInfos => resolve(charInfos));
           } else {
             reject(eveapi);
           }

@@ -7,12 +7,9 @@ import style from './style.scss';
 
 storiesOf('Layouts', module)
   .add('character manager', () => {
-    const actions = {
-      load: action('load characters')
-    };
 
     return (
-      <CharManager characters={characters} charActions={actions} onSelect={action('select character')}
+      <CharManager characters={characters} onSelect={action('select character')}
                    onNewApi={action('import new character')}/>
     )
   });
