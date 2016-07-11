@@ -1,7 +1,7 @@
 export const characters = [
   {
-    id: 94843873,
-    name: 'Character A',
+    characterID: 94843873,
+    characterName: 'Character A',
     gender: 'Male',
     DoB: '2009-01-15 18:42:00',
     race: 'Minmatar',
@@ -13,8 +13,8 @@ export const characters = [
     lastKnownLocation: 'Location A'
   },
   {
-    id: 795194955,
-    name: 'Dace Kaveira',
+    characterID: 795194955,
+    characterName: 'Dace Kaveira',
     gender: 'Male',
     DoB: '2009-01-15 18:42:00',
     race: 'Minmatar',
@@ -26,8 +26,8 @@ export const characters = [
     lastKnownLocation: 'C9N-CC'
   },
   {
-    id: 95669232,
-    name: 'Character C',
+    characterID: 95669232,
+    characterName: 'Character C',
     gender: 'Female',
     DoB: '2009-01-15 18:42:00',
     race: 'Minmatar',
@@ -39,8 +39,8 @@ export const characters = [
     lastKnownLocation: 'Location C'
   },
   {
-    id: 985265753,
-    name: 'Character D',
+    characterID: 985265753,
+    characterName: 'Character D',
     gender: 'Male',
     DoB: '2009-01-15 18:42:00',
     race: 'Minmatar',
@@ -52,8 +52,8 @@ export const characters = [
     lastKnownLocation: 'Location C'
   },
   {
-    id: 1777198370,
-    name: 'Character E',
+    characterID: 1777198370,
+    characterName: 'Character E',
     gender: 'Male',
     DoB: '2009-01-15 18:42:00',
     race: 'Minmatar',
@@ -65,8 +65,8 @@ export const characters = [
     lastKnownLocation: 'Location C'
   },
   {
-    id: 1444080829,
-    name: 'Character F',
+    characterID: 1444080829,
+    characterName: 'Character F',
     gender: 'Male',
     DoB: '2009-01-15 18:42:00',
     race: 'Minmatar',
@@ -78,8 +78,8 @@ export const characters = [
     lastKnownLocation: 'Location C'
   },
   {
-    id: 624049117,
-    name: 'Character G',
+    characterID: 624049117,
+    characterName: 'Character G',
     gender: 'Male',
     DoB: '2009-01-15 18:42:00',
     race: 'Minmatar',
@@ -91,8 +91,8 @@ export const characters = [
     lastKnownLocation: 'Location C'
   },
   {
-    id: 1814798395,
-    name: 'Character H',
+    characterID: 1814798395,
+    characterName: 'Character H',
     gender: 'Male',
     DoB: '2009-01-15 18:42:00',
     race: 'Minmatar',
@@ -106,8 +106,8 @@ export const characters = [
 ];
 
 export const characterBasicInfo = {
-    id: 795194955,
-    name: 'Dace Kaveira',
+    characterID: 795194955,
+    characterName: 'Dace Kaveira',
     gender: 'Male',
     DoB: '2009-01-15 18:42:00',
     race: 'Minmatar',
@@ -122,24 +122,24 @@ export const characterBasicInfo = {
 
 export const charListItems = [
   {
-    id: 795194955,
-    name: 'Dace Kaveira',
+    characterID: 795194955,
+    characterName: 'Dace Kaveira',
     balance: 5133022644.70,
     location: 'C9N-CC',
     currentSkill: 'Target Management',
     remainingTime: '1d 17h 6mn'
   },
   {
-    id: 94843873,
-    name: 'Character A',
+    characterID: 94843873,
+    characterName: 'Character A',
     balance: 123234345.123,
     location: 'Jita',
     currentSkill: '',
     remainingTime: ''
   },
   {
-    id: 1444080829,
-    name: 'Character A',
+    characterID: 1444080829,
+    characterName: 'Character A',
     balance: 45645645,
     location: 'XX9',
     currentSkill: 'Advanced Weapon Upgrades 5',

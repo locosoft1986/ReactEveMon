@@ -30,7 +30,7 @@ class CharGrid extends Component {
           <div key={rowIdx} className={style.grid}>
             {row.map(char =>
               <CharGridItem className={style.item}
-                key={char.id}
+                key={char.characterID}
                 character={char}
                 onSelect={onSelect}/>
             )}

@@ -5,8 +5,8 @@ import {getAvatarUrl, AvatarType} from '../../consts';
 
 const PORTRAIT_SIZE = 256;
 const CharGridItem = ({character, onSelect, ...props}) => {
-  const {characterName, gender, race, bloodline, ancestry} = character;
-  const portraitUrl = getAvatarUrl(id, PORTRAIT_SIZE, AvatarType.Character);
+  const {characterID, characterName, gender, race, bloodline, ancestry} = character;
+  const portraitUrl = getAvatarUrl(characterID, PORTRAIT_SIZE, AvatarType.Character);
 
   const onHandleClick = () => onSelect(character);
 
