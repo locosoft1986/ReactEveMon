@@ -7,9 +7,9 @@ export const characters = [
     race: 'Minmatar',
     bloodline: 'Brutor',
     ancestry: 'Slave Child',
-    accountBalance:264470,
-    skillPoints: 16130,
-    corporation: 'Corporation A',
+    balance:264470,
+    skills: [{skillpoints:88416130}],
+    corporationName: 'Corporation A',
     lastKnownLocation: 'Location A'
   },
   {
@@ -20,9 +20,9 @@ export const characters = [
     race: 'Minmatar',
     bloodline: 'Brutor',
     ancestry: 'Slave Child',
-    accountBalance: 5133022644.70,
-    skillPoints: 88416130,
-    corporation: 'Light of the moon',
+    balance: 5133022644.70,
+    skills: [{skillpoints:88416130}],
+    corporationName: 'Light of the moon',
     lastKnownLocation: 'C9N-CC'
   },
   {
@@ -33,9 +33,9 @@ export const characters = [
     race: 'Minmatar',
     bloodline: 'Brutor',
     ancestry: 'Slave Child',
-    accountBalance: 513300,
-    skillPoints: 416130,
-    corporation: 'Corporation C',
+    balance: 513300,
+    skills: [{skillpoints:88416130}],
+    corporationName: 'Corporation C',
     lastKnownLocation: 'Location C'
   },
   {
@@ -46,9 +46,9 @@ export const characters = [
     race: 'Minmatar',
     bloodline: 'Brutor',
     ancestry: 'Slave Child',
-    accountBalance: 513300,
-    skillPoints: 416130,
-    corporation: 'Corporation C',
+    balance: 513300,
+    skills: [{skillpoints:88416130}],
+    corporationName: 'Corporation C',
     lastKnownLocation: 'Location C'
   },
   {
@@ -59,9 +59,9 @@ export const characters = [
     race: 'Minmatar',
     bloodline: 'Brutor',
     ancestry: 'Slave Child',
-    accountBalance: 513300,
-    skillPoints: 416130,
-    corporation: 'Corporation C',
+    balance: 513300,
+    skills: [{skillpoints:88416130}],
+    corporationName: 'Corporation C',
     lastKnownLocation: 'Location C'
   },
   {
@@ -72,9 +72,9 @@ export const characters = [
     race: 'Minmatar',
     bloodline: 'Brutor',
     ancestry: 'Slave Child',
-    accountBalance: 513300,
-    skillPoints: 416130,
-    corporation: 'Corporation C',
+    balance: 513300,
+    skills: [{skillpoints:88416130}],
+    corporationName: 'Corporation C',
     lastKnownLocation: 'Location C'
   },
   {
@@ -85,9 +85,9 @@ export const characters = [
     race: 'Minmatar',
     bloodline: 'Brutor',
     ancestry: 'Slave Child',
-    accountBalance: 513300,
-    skillPoints: 416130,
-    corporation: 'Corporation C',
+    balance: 513300,
+    skills: [{skillpoints:88416130}],
+    corporationName: 'Corporation C',
     lastKnownLocation: 'Location C'
   },
   {
@@ -98,9 +98,9 @@ export const characters = [
     race: 'Minmatar',
     bloodline: 'Brutor',
     ancestry: 'Slave Child',
-    accountBalance: 513300,
-    skillPoints: 416130,
-    corporation: 'Corporation C',
+    balance: 513300,
+    skills: [{skillpoints:88416130}],
+    corporationName: 'Corporation C',
     lastKnownLocation: 'Location C'
   }
 ];
@@ -113,9 +113,9 @@ export const characterBasicInfo = {
     race: 'Minmatar',
     bloodline: 'Brutor',
     ancestry: 'Slave Child',
-    accountBalance: 5133022644.70,
-    skillPoints: 88416130,
-    corporation: 'Light of the moon',
+    balance: 5133022644.70,
+    skills: [{skillpoints:88416130}],
+    corporationName: 'Light of the moon',
     lastKnownLocation: 'C9N-CC'
   };
 

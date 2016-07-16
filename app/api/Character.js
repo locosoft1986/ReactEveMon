@@ -1,42 +1,41 @@
-import fetch from './fetch';
-import rowset from './rowset';
+import {hamster} from './hamster';
 import Storage from './Storage';
-
-
-function parseInfo(json) {
-  const {eveapi: {result}} = json;
-
-  if(!!result) {
-    return rowset(result);
-  }
-}
 
 const character = {
 
-  info(characterID) {
-    return fetch('/eve/CharacterInfo.xml.aspx', {characterID})
-            .then(json => parseInfo(json))
+  info(characterID, params={}) {
+    hamster.clearParams();
+    hamster.setParams({characterID, ...params});
+    return hamster.fetch('eve:CharacterInfo');
+  },
+
+  sheet(characterID, keyID, vCode) {
+    hamster.clearParams();
+    hamster.setParams({characterID, keyID, vCode});
+    return hamster.fetch('char:CharacterSheet');
+  },
+
+  combinedInfo(characterID, keyID, vCode) {
+    const next = (info) => {
+      return this.sheet(characterID, keyID, vCode)
+        .then(sheet => {
+          return Object.assign({}, sheet, info);
+        });
+    };
+    return this.info(characterID, {keyID, vCode})
+      .then(next);
   },
 
   loadSet(charSet) {
-    return new Promise((resolve, reject) => {
-      if(!!charSet) {
-        let loadCharRequests = Object.keys(charSet).map(characterID => {
-          return this.info(characterID)
-            .then(info => {
-              const {keyID, vCode, accessMask} = charSet[characterID];
-              return Object.assign({}, info, {keyID, vCode, accessMask});
-            })
-        });
-
-        return Promise.all(loadCharRequests).then(results => {
-          resolve(results.filter(info => !!info));
-        });
-      } else {
-        resolve([]);
-      }
+    let loadCharRequests = Object.keys(charSet).map(characterID => {
+      const {keyID, vCode} = charSet[characterID];
+      return this.combinedInfo(characterID, keyID, vCode)
+        .then(info => {
+          return Object.assign({}, info, {keyID, vCode});
+        })
     });
 
+    return Promise.all(loadCharRequests);
   },
 
   loadFromStorage() {
@@ -44,30 +43,19 @@ const character = {
   },
 
   apiInfo(keyID, vCode) {
-    //Replace the 'key' tag in the xml to avoid stackoverflow bug in the xml2json lite
-    const replaceKeyStr = (xml) => {
-      return xml.replace(/<key/g, '<keyInfo').replace(/<\/key>/g, '</keyInfo>');
-    };
-    return new Promise((resolve, reject) => {
-      fetch('/account/APIKeyInfo.xml.aspx', {keyID, vCode}, replaceKeyStr)
-        .then(info => {
-          const {eveapi} = info;
-          if(!!eveapi.result) {
-            const keyinfo = rowset(eveapi.result.keyInfo);
-            const idSet = keyinfo.characters.reduce((memo, char) => {
-              memo[char.characterID] = {
-                keyID, vCode,
-                accessMask: keyinfo.accessMask
-              };
-              return memo;
-            }, {});
+    const next = info => {
+      const {key: {characters}} = info;
+      const idSet = characters.reduce((memo, char) => {
+        memo[char.characterID] = Object.assign({}, char, {keyID, vCode});
+        return memo;
+      }, {});
 
-            return this.loadSet(idSet).then(charInfos => resolve(charInfos));
-          } else {
-            reject(eveapi);
-          }
-        });
-    });
+      return this.loadSet(idSet, keyID, vCode);
+    };
+
+    hamster.clearParams();
+    hamster.setParams({keyID, vCode});
+    return hamster.fetch('account:APIKeyInfo').then(next);
   }
 };
 

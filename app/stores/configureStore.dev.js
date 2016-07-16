@@ -2,18 +2,18 @@ import {createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from '../reducers'
 import createLogger from 'redux-logger'
-import { browserHistory } from 'react-router'
+import { hashHistory } from 'react-router'
 import { routerMiddleware, push } from 'react-router-redux'
-import { asyncMiddleware } from '../middlewares'
+import { asyncMiddleware, redirectMiddleware } from '../middlewares'
 
 export default function configureStore(initialState){
 
-  const routerReduxMiddleware = routerMiddleware(browserHistory);
+  const routerReduxMiddleware = routerMiddleware(hashHistory);
   const loggerMiddleware = createLogger();
   const store = createStore(
     rootReducer,
     initialState,
-    applyMiddleware(thunk, asyncMiddleware, routerReduxMiddleware, loggerMiddleware)
+    applyMiddleware(thunk, asyncMiddleware, redirectMiddleware, routerReduxMiddleware, loggerMiddleware)
   );
 
   if (module.hot) {

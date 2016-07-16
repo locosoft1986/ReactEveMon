@@ -1,8 +1,10 @@
 import CharAPI from '../api/Character';
 
-export function add() {
+export function add(characters) {
   return {
-    type: 'CHAR_ADD'
+    REDIRECT_KEY: 'ADD_CHARACTER',
+    characters,
+    redirect: '/'
   }
 }
 
@@ -19,7 +21,7 @@ export function restoreCharacters(charSet) {
 
 export function remove(id) {
   return {
-    type: 'CHAR_REMOVE',
+    type: 'REMOVE_CHARACTER',
     id
   }
 }

@@ -13,28 +13,29 @@ const PORTRAIT_SIZE = 512;
 const CharCard = ({content, selected, ...props}) => {
 
   const {characterID, characterName, gender, DoB, race, bloodline, ancestry,
-      accountBalance, skillPoints,
-      corporation,
+      balance, skills,
+      corporationName,
       lastKnownLocation
     } = content;
 
   const portraitUrl = getAvatarUrl(characterID, PORTRAIT_SIZE, AvatarType.Character);
+  const skillPoints = skills.reduce((memo, skill) => memo + parseInt(skill.skillpoints), 0);
 
   return(
     <div className={style.container}>
       <Card {...props} className={style.card}>
         <CardMedia
-          aspectRatio="wide"
+          aspectRatio="square"
           image={portraitUrl}
         />
         <CardTitle
           title={characterName}
           subtitle={`${gender} - ${race} - ${bloodline} - ${ancestry}`}
         />
-        <CardText>{`Balance: ${accountBalance} ISK`}</CardText>
+        <CardText>{`Balance: ${balance} ISK`}</CardText>
         <CardText>{`Birthday: ${DoB}`}</CardText>
         <CardText>{`Skill Points: ${skillPoints}`}</CardText>
-        <CardText>{`Corporation: ${corporation}`}</CardText>
+        <CardText>{`Corporation: ${corporationName}`}</CardText>
         <CardText>{`Current Location: ${lastKnownLocation}`}</CardText>
       </Card>
       {!!selected && <FontIcon className={style.check} value="check_circle"/> }

@@ -1,10 +1,12 @@
-import {push} from 'react-router-redux';
+import {push, goBack} from 'react-router-redux';
 import CharApi from '../api/Character';
 
 export function to(path){
-  return (dispatch)=>{
-    dispatch(push(path));
-  }
+   return push(path);
+}
+
+export function back(){
+  return goBack();
 }
 
 export function newApi() {
@@ -19,7 +21,7 @@ export function newApiCancel() {
   }
 }
 
-export function apiImport(key, code, next='/') {
+export function apiImport({key, code}, next='/import') {
   return {
     ASYNC_KEY: 'APIFORM_IMPORT',
     success: next,

@@ -7,6 +7,7 @@ import {appActions} from '../actions';
 function mapStateToProps(state, ownProps){
   const {views:{app:{requests, errors}, apiform}} = state;
 
+  console.log(state);
   return {
     loading: requests.length > 0 ? {type: requests[0], message:requests[0]} : null,
     errors,

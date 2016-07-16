@@ -10,9 +10,6 @@ export default function apiform(state=initialState, action) {
       return Object.assign({}, state, {active: true, busy: false});
 
     case 'APIFORM_IMPORT_REQUEST':
-      return Object.assign({}, state, {active: true, busy: true});
-
-    case 'APIFORM_IMPORT_SUCCESS':
       return Object.assign({}, state, {active: false, busy: false});
 
     case 'APIFORM_IMPORT_FAILURE':

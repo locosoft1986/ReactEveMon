@@ -8,7 +8,7 @@ describe('Character API', ()=> {
     charApi = require('../Character');
   });
 
-  pit('can load characters info given a set of characters id set', () => {
+  xit('can load characters info given a set of characters id set', () => {
     return charApi.loadSet({'795194955': {keyID: 123456, vCode: 'Test key', accessMask: 'test Mask'}})
             .then(result => {
               expect(result.length).toEqual(1);
@@ -20,7 +20,7 @@ describe('Character API', ()=> {
             });
   });
 
-  pit('can fetch character list given API key and code strings', () => {
+  xit('can fetch character list given API key and code strings', () => {
     return charApi.apiInfo(123456, 'Some test key')
             .then(result => {
               expect(result.length).toEqual(1);
